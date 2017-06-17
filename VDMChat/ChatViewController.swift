@@ -9,8 +9,9 @@
 import UIKit
 import FirebaseDatabase
 
-class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource {
 
+class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet var textViewFixedHeightConstraint: NSLayoutConstraint!
@@ -25,25 +26,29 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        //Tap to dimiss keyboard
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+        
+        //nav bar color config
         self.navigationItem.title = "Vidao Chat Board"
-         self.navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 0.18, green: 0.64, blue: 0.99, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 0.18, green: 0.64, blue: 0.99, alpha: 1)
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController?.navigationBar.isTranslucent = false
-    
-
-        // Do any additional setup after loading the view.
         
+        //observer for keyboard activity
         NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
-        //self.textView.textContainer.maximumNumberOfLines = 8
-        //self.textView.textContainer.lineBreakMode = .byTruncatingTail
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 44
         
         
+        //Firebase
         self.firebaseRef = Database.database().reference().child("messages")
         
         self.firebaseRef?.observe(DataEventType.value, with: { (snapshot) in
@@ -74,6 +79,15 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
                 
                 self.tableView.reloadData()
                 
+                self.enableFixedTextViewHeightConstraint(enable: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.1, execute: {
+                    
+                    if self.messages.count > 0 {
+                        let indexPath = IndexPath(row: self.messages.count-1, section: 0)
+                        self.tableView.scrollToRow(at:indexPath , at: UITableViewScrollPosition.bottom, animated: true)
+                    }
+                })
             }
             
             
@@ -81,19 +95,21 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         
     }
     
+    //keyboard activity
     func keyboardWillShow(notification:Notification) {
         let value = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as! NSValue
-        let height = value.cgRectValue.size.height;
-        bottomConstraint.constant = height;
+        let height = value.cgRectValue.size.height
+        bottomConstraint.constant = height
     }
     
     func keyboardWillHide() {
         bottomConstraint.constant = 0
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func dismissKeyboard() {
+        
+        view.endEditing(true)
+        
     }
     
     @IBAction func sendAction(_ sender: Any) {
@@ -114,13 +130,13 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
                                        "date":now.timeIntervalSince1970] as [String : Any]
                 
                 
-                //self.messages.append(fullMessage)
                 self.firebaseRef?.childByAutoId().setValue(firebaseMessage)
                 
                 
                 self.textView.text = ""
                 
                 self.tableView.reloadData()
+                
                 self.enableFixedTextViewHeightConstraint(enable: false)
                 
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.1, execute: {
@@ -130,25 +146,12 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
                         self.tableView.scrollToRow(at:indexPath , at: UITableViewScrollPosition.bottom, animated: true)
                     }
                 })
-                
-                    
-                
-                
             }
         }
-
+        
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
     // MARK: - UITextViewDelegate
     
     func textViewDidChange(_ textView: UITextView) {
@@ -156,24 +159,45 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         enableFixedTextViewHeightConstraint(enable: self.textView.contentSize.height >= 137)
     }
     
+    
     func enableFixedTextViewHeightConstraint(enable:Bool) {
+        
         print ("enable " + String(enable))
+        
         if enable {
+            
             if !self.textView.constraints.contains(self.textViewFixedHeightConstraint) {
+                
                 self.textView.isScrollEnabled = true
+                
                 self.textView.addConstraint(self.textViewFixedHeightConstraint)
+                
+                self.textView.invalidateIntrinsicContentSize()
+                
                 print ("ENABLED")
+                
             }
             
+            
+            
         } else {
+            
             if self.textView.constraints.contains(self.textViewFixedHeightConstraint) {
+                
                 self.textView.isScrollEnabled = false
+                
                 self.textView.removeConstraint(self.textViewFixedHeightConstraint)
                 
+                self.textView.invalidateIntrinsicContentSize()
+                
                 print("DISABLED")
+                
             }
+            
         }
+        
     }
+    
     
     // MARK : - UITableViewDataSource
     
@@ -185,7 +209,7 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewCell", for: indexPath) as! TableViewCell
         
         
-        let firebaseMessage = self.messages[indexPath.row];
+        let firebaseMessage = self.messages[indexPath.row]
         let fullMessage = firebaseMessage.username! + ": " + firebaseMessage.message!
         
         cell.content.text = fullMessage
@@ -196,11 +220,10 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         
     }
     
-    // MARK : - UITableViewDelegate
+    //Go to username screen
     @IBAction func goToUsernameScreen(_ sender: Any) {
         
         performSegue(withIdentifier: "SegueToUsernameViewController", sender: self)
-        
         
         
     }
