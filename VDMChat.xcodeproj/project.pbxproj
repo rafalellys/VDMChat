@@ -101,6 +101,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05A194F31EF51C6B00AC4F2D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				05A194E71EF4DC0A00AC4F2D /* ChatViewController.swift */,
+				05A194EB1EF4FF8E00AC4F2D /* UsernameViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		05A194F41EF51C8400AC4F2D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				05A194F11EF50BD700AC4F2D /* FirebaseMessage.swift */,
+				05A194EF1EF509F600AC4F2D /* MemoryStorage.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		05A194F51EF51C9F00AC4F2D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				05A194E91EF4F36D00AC4F2D /* TableviewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		A0D4E984630116A3895B7239 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +165,9 @@
 		EA2448B31ECB785F004F1568 /* VDMChat */ = {
 			isa = PBXGroup;
 			children = (
+				05A194F41EF51C8400AC4F2D /* Models */,
+				05A194F31EF51C6B00AC4F2D /* Controllers */,
+				05A194F51EF51C9F00AC4F2D /* Views */,
 				EA2448B41ECB785F004F1568 /* AppDelegate.swift */,
 				EA2448B81ECB785F004F1568 /* Main.storyboard */,
 				EA2448BE1ECB785F004F1568 /* Assets.xcassets */,
@@ -146,11 +175,6 @@
 				EA2448C31ECB785F004F1568 /* Info.plist */,
 				EA2448BB1ECB785F004F1568 /* VDMChat.xcdatamodeld */,
 				05A194E51EF4D6A100AC4F2D /* GoogleService-Info.plist */,
-				05A194E71EF4DC0A00AC4F2D /* ChatViewController.swift */,
-				05A194E91EF4F36D00AC4F2D /* TableviewCell.swift */,
-				05A194EB1EF4FF8E00AC4F2D /* UsernameViewController.swift */,
-				05A194EF1EF509F600AC4F2D /* MemoryStorage.swift */,
-				05A194F11EF50BD700AC4F2D /* FirebaseMessage.swift */,
 			);
 			path = VDMChat;
 			sourceTree = "<group>";
