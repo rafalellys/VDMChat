@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05A194E61EF4D6A100AC4F2D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05A194E51EF4D6A100AC4F2D /* GoogleService-Info.plist */; };
+		05A194E81EF4DC0A00AC4F2D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A194E71EF4DC0A00AC4F2D /* ChatViewController.swift */; };
+		05A194EA1EF4F36D00AC4F2D /* TableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A194E91EF4F36D00AC4F2D /* TableviewCell.swift */; };
+		05A194EC1EF4FF8E00AC4F2D /* UsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A194EB1EF4FF8E00AC4F2D /* UsernameViewController.swift */; };
+		05A194EE1EF5001100AC4F2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA2448B81ECB785F004F1568 /* Main.storyboard */; };
+		05A194F01EF509F600AC4F2D /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A194EF1EF509F600AC4F2D /* MemoryStorage.swift */; };
+		05A194F21EF50BD700AC4F2D /* FirebaseMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A194F11EF50BD700AC4F2D /* FirebaseMessage.swift */; };
 		3D8368E419674AB6CAC0A925 /* Pods_VDMChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95E4EBC0C890A98DD449A35E /* Pods_VDMChatTests.framework */; };
 		CE91E8A7C3024E7FA9C12426 /* Pods_VDMChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88ACEE220123A3A6A4B8864 /* Pods_VDMChatUITests.framework */; };
 		EA2448B51ECB785F004F1568 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2448B41ECB785F004F1568 /* AppDelegate.swift */; };
-		EA2448BA1ECB785F004F1568 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA2448B81ECB785F004F1568 /* Main.storyboard */; };
 		EA2448BD1ECB785F004F1568 /* VDMChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA2448BB1ECB785F004F1568 /* VDMChat.xcdatamodeld */; };
 		EA2448BF1ECB785F004F1568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA2448BE1ECB785F004F1568 /* Assets.xcassets */; };
 		EA2448C21ECB785F004F1568 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA2448C01ECB785F004F1568 /* LaunchScreen.storyboard */; };
@@ -37,6 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05A194E51EF4D6A100AC4F2D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		05A194E71EF4DC0A00AC4F2D /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		05A194E91EF4F36D00AC4F2D /* TableviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableviewCell.swift; sourceTree = "<group>"; };
+		05A194EB1EF4FF8E00AC4F2D /* UsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameViewController.swift; sourceTree = "<group>"; };
+		05A194EF1EF509F600AC4F2D /* MemoryStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
+		05A194F11EF50BD700AC4F2D /* FirebaseMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseMessage.swift; sourceTree = "<group>"; };
 		3A82E96368C8D48C419BA24B /* Pods-VDMChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VDMChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VDMChat/Pods-VDMChat.debug.xcconfig"; sourceTree = "<group>"; };
 		57FB26873C4A0A4B922003A4 /* Pods-VDMChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VDMChatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VDMChatUITests/Pods-VDMChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		84C96325C8F80C9067B60EC8 /* Pods-VDMChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VDMChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VDMChatTests/Pods-VDMChatTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +145,12 @@
 				EA2448C01ECB785F004F1568 /* LaunchScreen.storyboard */,
 				EA2448C31ECB785F004F1568 /* Info.plist */,
 				EA2448BB1ECB785F004F1568 /* VDMChat.xcdatamodeld */,
+				05A194E51EF4D6A100AC4F2D /* GoogleService-Info.plist */,
+				05A194E71EF4DC0A00AC4F2D /* ChatViewController.swift */,
+				05A194E91EF4F36D00AC4F2D /* TableviewCell.swift */,
+				05A194EB1EF4FF8E00AC4F2D /* UsernameViewController.swift */,
+				05A194EF1EF509F600AC4F2D /* MemoryStorage.swift */,
+				05A194F11EF50BD700AC4F2D /* FirebaseMessage.swift */,
 			);
 			path = VDMChat;
 			sourceTree = "<group>";
@@ -281,9 +299,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05A194E61EF4D6A100AC4F2D /* GoogleService-Info.plist in Resources */,
 				EA2448C21ECB785F004F1568 /* LaunchScreen.storyboard in Resources */,
 				EA2448BF1ECB785F004F1568 /* Assets.xcassets in Resources */,
-				EA2448BA1ECB785F004F1568 /* Main.storyboard in Resources */,
+				05A194EE1EF5001100AC4F2D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,7 +365,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6BC6AE14DC0EAEE6A76267F0 /* [CP] Embed Pods Frameworks */ = {
@@ -376,7 +395,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		B13B4FC5CA5A18692670F45E /* [CP] Embed Pods Frameworks */ = {
@@ -421,7 +440,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FDD8F9760EAD2D3D887F77B2 /* [CP] Embed Pods Frameworks */ = {
@@ -446,7 +465,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05A194F01EF509F600AC4F2D /* MemoryStorage.swift in Sources */,
+				05A194EC1EF4FF8E00AC4F2D /* UsernameViewController.swift in Sources */,
 				EA2448BD1ECB785F004F1568 /* VDMChat.xcdatamodeld in Sources */,
+				05A194EA1EF4F36D00AC4F2D /* TableviewCell.swift in Sources */,
+				05A194F21EF50BD700AC4F2D /* FirebaseMessage.swift in Sources */,
+				05A194E81EF4DC0A00AC4F2D /* ChatViewController.swift in Sources */,
 				EA2448B51ECB785F004F1568 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

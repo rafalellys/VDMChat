@@ -8,6 +8,9 @@ target 'VDMChat' do
 
   # Pods for VDMChat
 
+	pod 'Firebase/Core'
+    pod 'Firebase/Database'
+
   target 'VDMChatTests' do
     inherit! :search_paths
     # Pods for testing
